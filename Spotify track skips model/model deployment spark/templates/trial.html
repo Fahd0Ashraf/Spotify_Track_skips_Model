@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<!-- Template by Quackit.com -->
+<!-- Images by various sources under the Creative Commons CC0 license and/or the Creative Commons Zero license. 
+Although you can use them, for a more unique website, replace these images with your own. -->
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Tracks_Prediction</title>
+
+    <!-- Custom Fonts from Google -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+    .container {
+        text-align: center;
+
+    }   
+    body {
+        background-image: url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    h1 {
+        color: white;
+        font-size: 50px;
+    }
+    p {
+        color: ghostwhite;
+        font-size: 20px;
+    }
+    form {
+        float:mid; /*to clear the floats of inner elements,usefull if you wanna add a border or background image*/
+        width:600px;
+        margin-left: 35%;
+        border-radius:5px;
+
+    }
+
+    button {
+      /* usual styles */
+      padding:15px;
+      border:none;
+      background-color:grey;
+      color:#FAEBD7;
+      font-weight:600;
+      border-radius:5px;
+      width:52%;
+    }    
+    }
+    .container2 {
+      position: absolute;
+      top: 45%;
+      width: 100%;
+      font-size: 16px;
+    }
+    label {
+      color: white;
+      background-color: #222222;
+      padding: 1px;
+      border-radius:10px;
+
+
+    }
+    select {
+      text-align: center;
+      padding: 0.5px;
+      border-radius:5px;
+      color: white;
+      background-color: #222222;
+    }
+    .dropdowns {
+
+    }
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+   
+
+  <!-- Intro Section -->
+     <header>
+        <div class="container">
+            <span>
+                <div class="header-content">
+                    <div class="header-content-inner">
+                        <h1>Will you skip the track or not!</h1>
+                        <p>Top notch machine learning algorithms to predict your next move</p>
+                        <p>fill the boxes with values describing the track and then press the predict button  </p>
+                        <br>
+                        <br>
+                        {{ prediction_text }}
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="container2">
+            <form action="{{ url_for('predict')}}"method="post">
+              <div class = "dropdowns">
+                <label for="context_switch">Choose a context_switch option:</label>
+                <select name="context_switch" id="context_switch">
+                  <option value="0" selected>0</option>
+                  <option value="1">1</option>
+                </select>
+              </div> 
+              <div class = "dropdowns">
+                <label for="session_length">Choose a session_length option:</label>
+                <select name="session_length" id="session_length">
+                  <option value="1" selected>1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                </select>
+              </div>
+              <div class = "dropdowns">
+                 <label for="session_position">Choose a session_position option:</label>
+                <select name="session_position" id="session_position">
+                  <option value="1" selected>1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                </select>
+              </div>
+              <div class = "dropdowns">
+                <label for="hist_user_behavior_n_seekfwd">Choose a hist_user_behavior_n_seekfwd option:</label>
+                <select name="hist_user_behavior_n_seekfwd" id="hist_user_behavior_n_seekfwd">
+                  <option value="0" selected>0</option>
+                  <option value="1">1</option>
+                </select>
+              </div>
+              <div class = "dropdowns">
+                <label for="hist_user_behavior_n_seekback">Choose a hist_user_behavior_n_seekback option:</label>
+                <select name="hist_user_behavior_n_seekback" id="hist_user_behavior_n_seekback">
+                  <option value="0" selected>0</option>
+                  <option value="1">1</option>
+                </select>
+              </div>
+              <div class = "dropdowns">
+                <label for="hist_user_behavior_is_shuffle">Choose a hist_user_behavior_is_shuffle option:</label>
+                <select name="hist_user_behavior_is_shuffle" id="hist_user_behavior_is_shuffle">
+                  <option value="0" selected>0</option>
+                  <option value="1">1</option>
+                </select>
+              </div>
+              <div class = "dropdowns">
+                <label for="premium">Choose a premium option:</label>
+                <select name="premium" id="premium">
+                  <option value="0" selected>0</option>
+                  <option value="1">1</option>
+                </select>
+              </div>
+              <div class = "dropdowns">
+                <label for="context_type">Choose a context_type option:</label>
+                <select name="context_type" id="context_type">
+                  <option value="1" selected>editiorial_playlist</option>
+                  <option value="1">user_collection</option>
+                  <option value="2">catalog</option>
+                  <option value="3">radio</option>
+                  <option value="4">charts</option>
+                  <option value="5">personalized playlist</option>
+                </select>
+              <div class = "dropdowns">              
+                <label for="hist_user_behavior_reason_start">Choose a hist_user_behavior_reason_start option:</label>
+                <select name="hist_user_behavior_reason_start" id="hist_user_behavior_reason_start">
+                  <option value="1" selected>trackdone</option>
+                  <option value="2">endplay</option>
+                  <option value="3">fwdbtn</option>
+                  <option value="4">backbtn</option>
+                  <option value="5">remote</option>
+                  <option value="6">track error</option>
+                  <option value="7">appload</option>
+                  <option value="8">play btn</option>
+                  <option value="9">clickrow</option>
+                </select>
+              </div>
+              <div class = "dropdowns">                
+                <label for="hist_user_behavior_reason_end">Choose a hist_user_behavior_reason_end option:</label>
+                <select name="hist_user_behavior_reason_end" id="hist_user_behavior_reason_end">
+                  <option value="1" selected>trackdone</option>
+                  <option value="2">endplay</option>
+                  <option value="3">fwdbtn</option>
+                  <option value="4">backbtn</option>
+                  <option value="5">remote</option>
+                  <option value="6">logout</option>
+                  <option value="7">clickrow</option>
+                </select>
+              </div>
+              <div class = "dropdowns">                
+                <label for="released_from">Choose a released_from option:</label>
+                <select name="released_from" id="released_from">
+                  <option value="1" selected>1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                  <option value="32">32</option>
+                </select>
+              </div>
+              <div class = "dropdowns">                
+                <label for="is_paused_before_play">Choose a is_paused_before_play option:</label>
+                <select name="is_paused_before_play" id="is_paused_before_play">
+                  <option value="0" selected>0</option>
+                  <option value="1">1</option>
+                </select>
+              </div>
+              <div class = "dropdowns">                
+                <label for="hour_of_day">Choose a hour_of_day option:</label>
+                <select name="hour_of_day" id="hour_of_day">
+                  <option value="1" selected>1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                </select>
+               </div>
+              <button type="submit" >Predict</button>
+            </form>
+
+        </div>
+
+
+    </header>   
+ 
+
+    <!-- jQuery -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    
+    <!-- Custom Javascript -->
+    <script src="js/custom.js"></script>
+
+</body>
+
+</html>
